@@ -75,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mymsplatform.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -131,3 +130,4 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+CONFIG_PATH = ''

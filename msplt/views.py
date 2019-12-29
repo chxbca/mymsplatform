@@ -23,11 +23,12 @@ import time
 
 # Create your views here.
 # from mymsplatform.settings import BASE_DIR
+from mymsplatform import settings
 
 
 def test(request):
     # if request.method == "POST":
-    config.load_kube_config('~/.kube/config')
+    config.load_kube_config(settings.CONFIG_PATH)
     v1 = client.CoreV1Api()
 
     suc = 1
@@ -82,7 +83,7 @@ def test(request):
 
 # def test_sy(request):
 #     if request.method == "POST":
-#         config.load_kube_config('~/.kube/config')
+#         config.load_kube_config(settings.CONFIG_PATH)
 #         v1 = client.CoreV1Api()
 #         t = time.time()
 #         service = v1.read_namespaced_service(name="nginx", namespace="default")
@@ -95,7 +96,7 @@ def test(request):
 
 def create_thread(request):
     while True:
-        config.load_kube_config('~/.kube/config')
+        config.load_kube_config(settings.CONFIG_PATH)
         v1 = client.CoreV1Api()
         pod_list = v1.list_pod_for_all_namespaces()
         for i in pod_list.items:
